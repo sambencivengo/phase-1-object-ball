@@ -117,9 +117,12 @@ function gameObject() {
  
 // console.log(gameObject());
 
-
+const game = gameObject();
+const players = playersObject();
+const teams = Object.values(game);
+console.log(teams);
 //THE BETTER WAY!
-function players() {
+function playersObject() {
   return Object.assign(homeTeam().players, awayTeam().players);
 }
 //Home Team object
@@ -131,8 +134,8 @@ function awayTeam() {
   return gameObject().away;
 }
 
-function teams() {
-  return Object.assign(homeTeam(), awayTeam())
+function colors() {
+  return Object.assign({}, homeTeam().colors, awayTeam().colors)
 }
 
 function numPointsScored(playerInput){
@@ -143,13 +146,7 @@ function shoeSize(playerInput) {
   return players()[playerInput].shoe;
 }
 
-
-// function teamColors(teamName) {
-//   debugger
-//   return teams()[teamName].colors
-// }
-
-console.log(teamNames());
+console.log(teamColors());
 // console.log('Brooklyn Nets team colors are:', teamColors('Brooklyn Nets'));
 console.log('Alan Anderson\'s shoes size is:', shoeSize('Alan Anderson'));
 console.log('Alan Anderson points:', numPointsScored('Alan Anderson'));
